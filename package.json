@@ -1,0 +1,17 @@
+{
+  "name": "kora_assessment",
+  "version": "1.0.0",
+  "description": "Assessment with cypress",
+  "license": "ISC",
+  "author": "Adewale",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "cypress": "^14.0.2",
+    "cypress-file-upload": "^5.0.8"
+  }
+}
