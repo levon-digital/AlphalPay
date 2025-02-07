@@ -1,12 +1,11 @@
 import {Logout} from "/cypress/fixtures/selector.js";
-describe('Logout flow', () => {
-    it('Log In Users should be able to log out', () => {
-      cy.visit('/')
-      cy.get(Logout.Loginbutton).click();
-      cy.get(Logout.Aplhapaylogo).should("be.visible")
-      cy.get(Logout.emailfield).should("be.visible").type(Logout.validemailaddress)
-      cy.get(Logout.passwordField).should("be.visible").type(Logout.validpassword)
-      cy.get(Logout.signInbutton).should("be.visible").click()
+const access = require("./Login.cy.js");
+describe(" Log out flow", function () {
+  beforeEach(function () {
+      cy.visit("/")
+      access.Login();
+      });
+      it('user should be able to logout', () => {
       cy.get(Logout.Aplhapaylogo).should("be.visible")
       cy.get(Logout.headermessage).should("not.be.NaN").should("be.visible");
       cy.get(Logout.Accountbalance).should("be.visible").should("have.text", "NGN 0.00");

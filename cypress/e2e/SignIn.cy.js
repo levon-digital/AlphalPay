@@ -1,12 +1,11 @@
 import {SignIn} from "/cypress/fixtures/selector.js";
-describe('Sign In flow with Valid credentials', () => {
-    it('Login with Valid credentials', () => {
-      cy.visit('/')
-      cy.get(SignIn.Loginbutton).click();
-      cy.get(SignIn.Aplhapaylogo).should("be.visible")
-      cy.get(SignIn.emailfield).should("be.visible").type(SignIn.validemailaddress)
-      cy.get(SignIn.passwordField).should("be.visible").type(SignIn.validpassword)
-      cy.get(SignIn.signInbutton).should("be.visible").click()
+const access = require("./Login.cy.js");
+describe(" Sign in sucessfully", function () {
+  beforeEach(function () {
+      cy.visit("/")
+      access.Login();
+      });
+      it('User sign in successfully', () => {
       cy.get(SignIn.Aplhapaylogo).should("be.visible")
       cy.get(SignIn.headermessage).should("not.be.NaN").should("be.visible");
       cy.get(SignIn.Accountbalance).should("be.visible").should("have.text", "NGN 0.00");

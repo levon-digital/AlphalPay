@@ -8,6 +8,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://alphapay.netlify.app/',
     defaultCommandTimeout: 50000,
+    defaultBrowser: 'chrome',
   
   pageLoadTimeout: 50000,
   },

@@ -1,13 +1,13 @@
 import {updateprofile} from "/cypress/fixtures/selector.js";
 import { faker } from '@faker-js/faker';
-describe('Update User Profile', () => {
+const access = require("./Login.cy.js");
+describe(" Update Profile Test Scenarios", function () {
+  beforeEach(function () {
+      cy.visit("/")
+      access.Login();
+      });
+
     it('User should be able to update User FullNmae', () => {
-      cy.visit('/')
-      cy.get(updateprofile.Loginbutton).click();
-      cy.get(updateprofile.Aplhapaylogo).should("be.visible")
-      cy.get(updateprofile.emailfield).should("be.visible").type(updateprofile.validemailaddress)
-      cy.get(updateprofile.passwordField).should("be.visible").type(updateprofile.validpassword)
-      cy.get(updateprofile.signInbutton).should("be.visible").click()
       cy.get(updateprofile.Aplhapaylogo).should("be.visible")
       cy.get(updateprofile.headermessage).should("not.be.NaN").should("be.visible");
       cy.get(updateprofile.Accountbalance).should("be.visible").should("have.text", "NGN 0.00");
@@ -23,12 +23,6 @@ describe('Update User Profile', () => {
 })
 
 it('User should be able to update UserName', () => {
-  cy.visit('/')
-  cy.get(updateprofile.Loginbutton).click();
-  cy.get(updateprofile.Aplhapaylogo).should("be.visible")
-  cy.get(updateprofile.emailfield).should("be.visible").type(updateprofile.validemailaddress)
-  cy.get(updateprofile.passwordField).should("be.visible").type(updateprofile.validpassword)
-  cy.get(updateprofile.signInbutton).should("be.visible").click()
   cy.get(updateprofile.Aplhapaylogo).should("be.visible")
   cy.get(updateprofile.headermessage).should("not.be.NaN").should("be.visible");
   cy.get(updateprofile.Accountbalance).should("be.visible").should("have.text", "NGN 0.00");
